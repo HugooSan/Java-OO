@@ -5,14 +5,17 @@ public class TesteContas {
 		ContaCorrente cc = new ContaCorrente(111, 1111);
 		cc.deposita(100);
 		
-		ContaPoupanca cp = new ContaPoupanca(222, 2222);
-		cp.deposita(100);
-		
-		cc.transfere(10, cp);
+		SeguroDeVida sv = new SeguroDeVida();
+				
 		
 		System.out.println("CC :"+cc.getSaldo());
-		System.out.println("CP :"+cp.getSaldo());
-
+		
+		CalculadorImposto calc = new CalculadorImposto();
+		calc.registra(cc);
+		calc.registra(sv);
+		
+		System.out.println(calc.getTotalImposto());
+		
 	}
 
 }
